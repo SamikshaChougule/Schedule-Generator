@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Timetable Generator</h2>
+        <form id="timetableForm">
+            <div class="form-group">
+                <label for="totalClasses">Total Classes:</label>
+                <input type="number" id="totalClasses" name="totalClasses" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="totalCourses">Total Courses:</label>
+                <input type="number" id="totalCourses" name="totalCourses" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="totalSlots">Total Slots:</label>
+                <input type="number" id="totalSlots" name="totalSlots" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="totalDays">Total Days:</label>
+                <input type="number" id="totalDays" name="totalDays" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="dailyRepetition">Daily Repetition:</label>
+                <input type="number" id="dailyRepetition" name="dailyRepetition" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="teachers">Teachers (comma separated):</label>
+                <input type="text" id="teachers" name="teachers" required>
+            </div>
+            <div class="form-group">
+                <label for="subjects">Subjects (comma separated):</label>
+                <input type="text" id="subjects" name="subjects" required>
+            </div>
+            <button type="submit">Generate Timetable</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("timetableForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const totalClasses = document.getElementById("totalClasses").value;
+            const totalCourses = document.getElementById("totalCourses").value;
+            const totalSlots = document.getElementById("totalSlots").value;
+            const totalDays = document.getElementById("totalDays").value;
+            const dailyRepetition = document.getElementById("dailyRepetition").value;
+            const teachers = document.getElementById("teachers").value.split(",").map(Number);
+            const subjects = document.getElementById("subjects").value.split(",");
+            // Redirect to timetable generation page with input parameters
+            window.location.href = `timetable_generation.html?totalClasses=${totalClasses}&totalCourses=${totalCourses}&totalSlots=${totalSlots}&totalDays=${totalDays}&dailyRepetition=${dailyRepetition}&teachers=${teachers}&subjects=${subjects}`;
+        });
+    </script>
+</body>
+</html>
