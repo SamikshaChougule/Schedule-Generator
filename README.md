@@ -2,7 +2,7 @@
 
 
 **University Timetable Generator**
-**Technologies Used**: Python, Genetic Algorithms
+- **Technologies Used**: Python, Genetic Algorithms
 - **Tool**s: Excel (for data import/export)
 - **Description**:
   - Developed a university timetable generator leveraging Genetic Algorithms to efficiently create optimal class schedules while adhering to various constraints.
